@@ -7,6 +7,8 @@ from __future__ import annotations
 
 import os
 import sys
+from datetime import datetime, timedelta, timezone
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 from urllib.parse import quote
 
@@ -16,13 +18,11 @@ from bs4 import BeautifulSoup
 # Remotive's JSON API. Their old /remote-jobs/rss endpoint now returns 403/404.
 DEFAULT_SOURCE_URL = "https://remotive.com/api/remote-jobs?category=software-dev"
 
-# Some job boards reject the default python-requests user agent.
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (compatible; job-telegram-scraper/1.0)",
     "Accept": "application/json, application/rss+xml, application/xml;q=0.9, */*;q=0.8",
 }
 
-# Case-insensitive keywords used to decide which postings to forward
 DEFAULT_KEYWORDS = (
     "sde 2",
     "sde2",
@@ -32,6 +32,21 @@ DEFAULT_KEYWORDS = (
     "backend engineer",
     "full stack",
     "fullstack",
+)
+
+# Locations that can include candidates in India.
+INDIA_FRIENDLY_TOKENS = (
+    "india",
+    "indian",
+    "worldwide",
+    "world wide",
+    "anywhere",
+    "unrestricted",
+    "global",
+    "apac",
+    "asia-pacific",
+    "asia pacific",
+    "asia",
 )
 
 SEEN_FILE = Path(__file__).resolve().parent / ".seen_jobs.txt"
@@ -71,8 +86,46 @@ def matches_keywords(title: str, summary: str = "") -> bool:
     return any(keyword in haystack for keyword in keywords())
 
 
+def max_age_days() -> int:
+    return int(os.environ.get("MAX_AGE_DAYS", "14"))
+
+
+def parse_published(value: str) -> datetime | None:
+    value = (value or "").strip()
+    if not value:
+        return None
+    try:
+        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+        if parsed.tzinfo is None:
+            parsed = parsed.replace(tzinfo=timezone.utc)
+        return parsed
+    except ValueError:
+        pass
+    try:
+        parsed = parsedate_to_datetime(value)
+        if parsed.tzinfo is None:
+            parsed = parsed.replace(tzinfo=timezone.utc)
+        return parsed
+    except (TypeError, ValueError):
+        return None
+
+
+def is_recent(published: datetime | None) -> bool:
+    if published is None:
+        return True
+    cutoff = datetime.now(timezone.utc) - timedelta(days=max_age_days())
+    return published >= cutoff
+
+
+def allows_india(location: str, title: str = "", summary: str = "") -> bool:
+    """Keep Worldwide / APAC / India. Drop US-, Europe-, or Americas-only roles."""
+    haystack = f"{location} {title} {summary}".lower()
+    if not haystack.strip():
+        return False
+    return any(token in haystack for token in INDIA_FRIENDLY_TOKENS)
+
+
 def parse_json_jobs(payload: dict) -> list[dict[str, str]]:
-    """Parse a Remotive-style JSON response."""
     jobs: list[dict[str, str]] = []
 
     for entry in payload.get("jobs", []):
@@ -84,6 +137,7 @@ def parse_json_jobs(payload: dict) -> list[dict[str, str]]:
         summary = BeautifulSoup(entry.get("description", ""), "html.parser").get_text(
             " ", strip=True
         )
+        published_raw = str(entry.get("publication_date", "")).strip()
 
         jobs.append(
             {
@@ -91,7 +145,10 @@ def parse_json_jobs(payload: dict) -> list[dict[str, str]]:
                 "title": title,
                 "company": str(entry.get("company_name", "")).strip() or "Unknown",
                 "link": link,
-                "summary": summary[:280],
+                "summary": summary[:400],
+                "location": str(entry.get("candidate_required_location", "")).strip()
+                or "Unknown",
+                "published": published_raw,
             }
         )
 
@@ -99,7 +156,6 @@ def parse_json_jobs(payload: dict) -> list[dict[str, str]]:
 
 
 def parse_rss_jobs(content: bytes) -> list[dict[str, str]]:
-    """Parse a generic RSS feed. Handles 'Company: Role' and 'Role - Company' titles."""
     soup = BeautifulSoup(content, "xml")
     jobs: list[dict[str, str]] = []
 
@@ -116,14 +172,17 @@ def parse_rss_jobs(content: bytes) -> list[dict[str, str]]:
             ).get_text(" ", strip=True)
 
         title, company = raw_title, ""
-        # WeWorkRemotely uses "Company: Role"
         if ": " in raw_title:
             maybe_company, maybe_title = raw_title.split(": ", 1)
             company, title = maybe_company.strip(), maybe_title.strip()
-        # Other feeds use "Role - Company"
         elif " - " in raw_title:
             maybe_title, maybe_company = raw_title.rsplit(" - ", 1)
             title, company = maybe_title.strip(), maybe_company.strip()
+
+        location = ""
+        if item.region:
+            location = item.region.get_text(strip=True)
+        published_raw = item.pubDate.get_text(strip=True) if item.pubDate else ""
 
         jobs.append(
             {
@@ -131,7 +190,9 @@ def parse_rss_jobs(content: bytes) -> list[dict[str, str]]:
                 "title": title,
                 "company": company or "Unknown",
                 "link": link,
-                "summary": summary[:280],
+                "summary": summary[:400],
+                "location": location or "Unknown",
+                "published": published_raw,
             }
         )
 
@@ -161,7 +222,25 @@ def send_telegram(token: str, chat_id: str, text: str) -> None:
 
 
 def format_message(job: dict[str, str]) -> str:
-    return f"New SDE 2 Role: {job['title']} at {job['company']}\n{job['link']}"
+    published = job.get("published") or "unknown date"
+    location = job.get("location") or "Unknown"
+    return (
+        f"New role: {job['title']} at {job['company']}\n"
+        f"Location: {location}\n"
+        f"Posted: {published}\n"
+        f"{job['link']}"
+    )
+
+
+def is_eligible(job: dict[str, str]) -> bool:
+    if not matches_keywords(job["title"], job["summary"]):
+        return False
+    if not allows_india(job.get("location", ""), job["title"], job["summary"]):
+        return False
+    published = parse_published(job.get("published", ""))
+    if not is_recent(published):
+        return False
+    return True
 
 
 def main() -> None:
@@ -180,23 +259,38 @@ def main() -> None:
 
     seen = load_seen()
     sent = 0
+    skipped_location = 0
+    skipped_old = 0
+    skipped_keyword = 0
 
     for job in jobs:
         if job["id"] in seen:
             continue
         if not matches_keywords(job["title"], job["summary"]):
+            skipped_keyword += 1
+            seen.add(job["id"])
+            continue
+        if not allows_india(job.get("location", ""), job["title"], job["summary"]):
+            skipped_location += 1
+            seen.add(job["id"])
+            continue
+        if not is_recent(parse_published(job.get("published", ""))):
+            skipped_old += 1
             seen.add(job["id"])
             continue
         if sent >= max_send:
             continue
 
-        print(f"Sending: {job['title']} at {job['company']}")
+        print(f"Sending: {job['title']} at {job['company']} [{job.get('location')}]")
         send_telegram(token, chat_id, format_message(job))
         seen.add(job["id"])
         sent += 1
 
     save_seen(seen)
-    print(f"Done. Sent {sent} new matching job(s).")
+    print(
+        f"Done. Sent {sent}. "
+        f"Skipped keyword={skipped_keyword} location={skipped_location} older_than_{max_age_days()}d={skipped_old}."
+    )
 
 
 if __name__ == "__main__":
