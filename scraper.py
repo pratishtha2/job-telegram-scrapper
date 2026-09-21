@@ -27,32 +27,78 @@ DEFAULT_SOURCES = (
     "https://weworkremotely.com/categories/remote-programming-jobs.rss",
     "https://remoteok.com/api",
     "https://jobicy.com/api/v2/remote-jobs?count=50",
+    "https://himalayas.app/jobs/api?limit=100",
 )
 
 DEFAULT_KEYWORDS = (
+    "sde",
     "sde 2",
     "sde2",
     "sde ii",
     "software engineer",
     "software developer",
-    "backend engineer",
+    "developer",
+    "engineer",
+    "backend",
+    "back end",
+    "frontend",
+    "front end",
     "full stack",
     "fullstack",
+    "programmer",
 )
 
-INDIA_FRIENDLY_TOKENS = (
-    "india",
-    "indian",
+# Titles that contain "engineer"/"developer" but are not SDE roles.
+EXCLUDE_TITLE_TOKENS = (
+    "sales",
+    "account executive",
+    "business development",
+    "customer success",
+    "customer support",
+    "support engineer",
+    "solutions engineer",
+    "solution engineer",
+    "sales engineer",
+    "marketing",
+    "recruiter",
+    "recruiting",
+    "copywriter",
+    "writer",
+    "designer",
+    "psychologist",
+    "teacher",
+    "tutor",
+    "assistant",
+    "evaluator",
+    "annotator",
+    "mechanical",
+    "electrical",
+    "civil engineer",
+    "service desk",
+    "help desk",
+)
+
+# India is explicitly named.
+INDIA_TOKENS = ("india", "indian")
+
+# Open to candidates anywhere, so India qualifies.
+GLOBAL_TOKENS = (
     "worldwide",
     "world wide",
     "anywhere",
+    "anywhere in the world",
     "unrestricted",
     "global",
+)
+
+# Regions that usually include India. Opt-in via INCLUDE_APAC=true.
+APAC_TOKENS = (
     "apac",
+    "apj",
+    "asia",
     "asia-pacific",
     "asia pacific",
-    "asia",
-    "digital nomad",
+    "south asia",
 )
 
 SEEN_FILE = Path(__file__).resolve().parent / ".seen_jobs.txt"
@@ -87,13 +133,27 @@ def keywords() -> tuple[str, ...]:
     return tuple(k.strip().lower() for k in raw.split(",") if k.strip())
 
 
+def env_flag(name: str, default: bool = False) -> bool:
+    raw = os.environ.get(name, "").strip().lower()
+    if not raw:
+        return default
+    return raw in {"1", "true", "yes", "y", "on"}
+
+
 def matches_keywords(title: str, summary: str = "") -> bool:
-    haystack = f"{title} {summary}".lower()
+    """Match the job title. Descriptions name unrelated roles and cause false hits."""
+    title_lower = title.lower()
+    if any(bad in title_lower for bad in EXCLUDE_TITLE_TOKENS):
+        return False
+
+    haystack = title_lower
+    if env_flag("MATCH_DESCRIPTION"):
+        haystack = f"{title} {summary}".lower()
     return any(keyword in haystack for keyword in keywords())
 
 
 def max_age_days() -> int:
-    return int(os.environ.get("MAX_AGE_DAYS", "14"))
+    return int(os.environ.get("MAX_AGE_DAYS", "30"))
 
 
 def parse_published(value: str) -> datetime | None:
@@ -123,14 +183,27 @@ def is_recent(published: datetime | None) -> bool:
     return published >= cutoff
 
 
-def allows_india(location: str, title: str = "", summary: str = "") -> bool:
-    haystack = f"{location} {title} {summary}".lower()
-    if not haystack.strip():
-        return False
-    return any(
-        re.search(r"\b" + re.escape(token) + r"\b", haystack)
-        for token in INDIA_FRIENDLY_TOKENS
-    )
+def has_token(text: str, tokens: tuple[str, ...]) -> bool:
+    return any(re.search(r"\b" + re.escape(t) + r"\b", text) for t in tokens)
+
+
+def allows_india(location: str) -> bool:
+    """Decide eligibility from the location field only.
+
+    Title and description are deliberately not consulted: a Singapore sales
+    listing whose blurb says "global" would otherwise look India-eligible.
+    """
+    text = (location or "").strip().lower()
+    if not text or text in {"unknown", "unspecified"}:
+        return env_flag("ALLOW_UNKNOWN_LOCATION")
+
+    if has_token(text, INDIA_TOKENS):
+        return True
+    if has_token(text, GLOBAL_TOKENS):
+        return True
+    if env_flag("INCLUDE_APAC") and has_token(text, APAC_TOKENS):
+        return True
+    return False
 
 
 def source_name(url: str) -> str:
@@ -223,9 +296,8 @@ def parse_remoteok(payload: list, source: str) -> list[dict[str, str]]:
         if not title or not link:
             continue
         tags = " ".join(str(t) for t in (entry.get("tags") or []))
-        location = str(entry.get("location") or "").strip()
-        if not location:
-            location = tags or "Remote"
+        # RemoteOK often leaves location blank; tags are not a location.
+        location = str(entry.get("location") or "").strip() or "Unspecified"
         jobs.append(
             job_record(
                 job_id=str(entry.get("id") or link),
@@ -235,6 +307,38 @@ def parse_remoteok(payload: list, source: str) -> list[dict[str, str]]:
                 summary=html_text(str(entry.get("description", ""))) + " " + tags,
                 location=location,
                 published=str(entry.get("date", "")).strip(),
+                source=source,
+            )
+        )
+    return jobs
+
+
+def parse_himalayas(payload: dict, source: str) -> list[dict[str, str]]:
+    jobs: list[dict[str, str]] = []
+    for entry in payload.get("jobs", []):
+        title = str(entry.get("title", "")).strip()
+        link = str(entry.get("applicationLink") or entry.get("guid") or "").strip()
+        if not title or not link:
+            continue
+
+        # Empty locationRestrictions means the role is open worldwide.
+        restrictions = entry.get("locationRestrictions") or []
+        location = ", ".join(str(r) for r in restrictions) or "Worldwide"
+
+        published = ""
+        pub = entry.get("pubDate")
+        if isinstance(pub, (int, float)):
+            published = datetime.fromtimestamp(pub, tz=timezone.utc).isoformat()
+
+        jobs.append(
+            job_record(
+                job_id=link,
+                title=title,
+                company=str(entry.get("companyName", "")).strip(),
+                link=link,
+                summary=html_text(str(entry.get("excerpt", ""))),
+                location=location,
+                published=published,
                 source=source,
             )
         )
@@ -287,12 +391,14 @@ def parse_payload(payload: object, content: bytes, source: str) -> list[dict[str
         return parse_remoteok(payload, source)
     if isinstance(payload, dict):
         jobs = payload.get("jobs") or []
-        if jobs and isinstance(jobs[0], dict) and "jobTitle" in jobs[0]:
-            return parse_jobicy(payload, source)
-        if jobs and isinstance(jobs[0], dict) and (
-            "company_name" in jobs[0] or "title" in jobs[0]
-        ):
-            return parse_remotive(payload, source)
+        if jobs and isinstance(jobs[0], dict):
+            first = jobs[0]
+            if "jobTitle" in first:
+                return parse_jobicy(payload, source)
+            if "locationRestrictions" in first:
+                return parse_himalayas(payload, source)
+            if "company_name" in first or "title" in first:
+                return parse_remotive(payload, source)
     return parse_rss_jobs(content, source)
 
 
@@ -388,7 +494,7 @@ def main() -> None:
             skipped_keyword += 1
             seen.add(job["id"])
             continue
-        if not allows_india(job.get("location", ""), job["title"], job["summary"]):
+        if not allows_india(job.get("location", "")):
             skipped_location += 1
             seen.add(job["id"])
             continue
