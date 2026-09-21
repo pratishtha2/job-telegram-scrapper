@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Fetch job postings from an RSS feed and send matching roles to Telegram.
+Fetch job postings from a JSON API or RSS feed and send matching roles to Telegram.
 """
 
 from __future__ import annotations
@@ -13,13 +13,20 @@ from urllib.parse import quote
 import requests
 from bs4 import BeautifulSoup
 
-# Default: Remotive remote software jobs RSS (override with JOB_RSS_URL)
-DEFAULT_RSS_URL = "https://remotive.com/remote-jobs/rss?category=software-dev"
+# Remotive's JSON API. Their old /remote-jobs/rss endpoint now returns 403/404.
+DEFAULT_SOURCE_URL = "https://remotive.com/api/remote-jobs?category=software-dev"
+
+# Some job boards reject the default python-requests user agent.
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (compatible; job-telegram-scraper/1.0)",
+    "Accept": "application/json, application/rss+xml, application/xml;q=0.9, */*;q=0.8",
+}
 
 # Case-insensitive keywords used to decide which postings to forward
 DEFAULT_KEYWORDS = (
     "sde 2",
     "sde2",
+    "sde ii",
     "software engineer",
     "software developer",
     "backend engineer",
@@ -41,7 +48,11 @@ def require_env(name: str) -> str:
 def load_seen() -> set[str]:
     if not SEEN_FILE.exists():
         return set()
-    return {line.strip() for line in SEEN_FILE.read_text(encoding="utf-8").splitlines() if line.strip()}
+    return {
+        line.strip()
+        for line in SEEN_FILE.read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    }
 
 
 def save_seen(seen: set[str]) -> None:
@@ -60,30 +71,59 @@ def matches_keywords(title: str, summary: str = "") -> bool:
     return any(keyword in haystack for keyword in keywords())
 
 
-def fetch_jobs(rss_url: str) -> list[dict[str, str]]:
-    response = requests.get(rss_url, timeout=30)
-    response.raise_for_status()
+def parse_json_jobs(payload: dict) -> list[dict[str, str]]:
+    """Parse a Remotive-style JSON response."""
+    jobs: list[dict[str, str]] = []
 
-    soup = BeautifulSoup(response.content, "xml")
+    for entry in payload.get("jobs", []):
+        title = str(entry.get("title", "")).strip()
+        link = str(entry.get("url", "")).strip()
+        if not title or not link:
+            continue
+
+        summary = BeautifulSoup(entry.get("description", ""), "html.parser").get_text(
+            " ", strip=True
+        )
+
+        jobs.append(
+            {
+                "id": str(entry.get("id") or link),
+                "title": title,
+                "company": str(entry.get("company_name", "")).strip() or "Unknown",
+                "link": link,
+                "summary": summary[:280],
+            }
+        )
+
+    return jobs
+
+
+def parse_rss_jobs(content: bytes) -> list[dict[str, str]]:
+    """Parse a generic RSS feed. Handles 'Company: Role' and 'Role - Company' titles."""
+    soup = BeautifulSoup(content, "xml")
     jobs: list[dict[str, str]] = []
 
     for item in soup.find_all("item"):
-        title = (item.title.get_text(strip=True) if item.title else "").strip()
-        link = (item.link.get_text(strip=True) if item.link else "").strip()
+        raw_title = item.title.get_text(strip=True) if item.title else ""
+        link = item.link.get_text(strip=True) if item.link else ""
+        if not raw_title or not link:
+            continue
+
         summary = ""
         if item.description:
-            summary = item.description.get_text(" ", strip=True)
-        elif item.find("content:encoded"):
-            summary = item.find("content:encoded").get_text(" ", strip=True)
+            summary = BeautifulSoup(
+                item.description.get_text(), "html.parser"
+            ).get_text(" ", strip=True)
 
-        company = ""
-        # Remotive and similar feeds often put "Title - Company" in the title
-        if " - " in title:
-            maybe_title, maybe_company = title.rsplit(" - ", 1)
+        title, company = raw_title, ""
+        # WeWorkRemotely uses "Company: Role"
+        if ": " in raw_title:
+            maybe_company, maybe_title = raw_title.split(": ", 1)
+            company, title = maybe_company.strip(), maybe_title.strip()
+        # Other feeds use "Role - Company"
+        elif " - " in raw_title:
+            maybe_title, maybe_company = raw_title.rsplit(" - ", 1)
             title, company = maybe_title.strip(), maybe_company.strip()
-
-        if not title or not link:
-            continue
 
         jobs.append(
             {
@@ -96,6 +136,16 @@ def fetch_jobs(rss_url: str) -> list[dict[str, str]]:
         )
 
     return jobs
+
+
+def fetch_jobs(source_url: str) -> list[dict[str, str]]:
+    response = requests.get(source_url, headers=HEADERS, timeout=30)
+    response.raise_for_status()
+
+    content_type = response.headers.get("Content-Type", "").lower()
+    if "json" in content_type:
+        return parse_json_jobs(response.json())
+    return parse_rss_jobs(response.content)
 
 
 def send_telegram(token: str, chat_id: str, text: str) -> None:
@@ -111,19 +161,21 @@ def send_telegram(token: str, chat_id: str, text: str) -> None:
 
 
 def format_message(job: dict[str, str]) -> str:
-    return (
-        f"New SDE 2 Role: {job['title']} at {job['company']}\n"
-        f"{job['link']}"
-    )
+    return f"New SDE 2 Role: {job['title']} at {job['company']}\n{job['link']}"
 
 
 def main() -> None:
     token = require_env("TELEGRAM_TOKEN")
     chat_id = require_env("TELEGRAM_CHAT_ID")
-    rss_url = os.environ.get("JOB_RSS_URL", DEFAULT_RSS_URL).strip() or DEFAULT_RSS_URL
+    source_url = (
+        os.environ.get("JOB_SOURCE_URL", "").strip()
+        or os.environ.get("JOB_RSS_URL", "").strip()
+        or DEFAULT_SOURCE_URL
+    )
+    max_send = int(os.environ.get("MAX_SEND", "10"))
 
-    print(f"Fetching jobs from: {rss_url}")
-    jobs = fetch_jobs(rss_url)
+    print(f"Fetching jobs from: {source_url}")
+    jobs = fetch_jobs(source_url)
     print(f"Found {len(jobs)} postings in feed")
 
     seen = load_seen()
@@ -135,10 +187,11 @@ def main() -> None:
         if not matches_keywords(job["title"], job["summary"]):
             seen.add(job["id"])
             continue
+        if sent >= max_send:
+            continue
 
-        message = format_message(job)
         print(f"Sending: {job['title']} at {job['company']}")
-        send_telegram(token, chat_id, message)
+        send_telegram(token, chat_id, format_message(job))
         seen.add(job["id"])
         sent += 1
 
