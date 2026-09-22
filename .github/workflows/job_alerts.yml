@@ -26,6 +26,7 @@ jobs:
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          MAX_SEND: '250' # Increase the cap to allow jobs from other sources
         run: python scraper.py
 
       - name: Commit seen jobs state
