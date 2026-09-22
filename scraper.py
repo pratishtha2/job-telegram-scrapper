@@ -449,27 +449,33 @@ def fetch_all_jobs() -> list[dict[str, str]]:
 
 
 def send_telegram(token: str, chat_id: str, text: str) -> None:
-    url = (
-        f"https://api.telegram.org/bot{token}/sendMessage"
-        f"?chat_id={quote(chat_id)}&text={quote(text)}"
-    )
-    response = requests.get(url, timeout=30)
+    url = f"https://api.telegram.org/bot{token}/sendMessage"
+    payload = {
+        "chat_id": chat_id,
+        "text": text,
+        "parse_mode": "HTML",
+        "disable_web_page_preview": True # Keeps the chat clean
+    }
+    # Use POST instead of GET
+    response = requests.post(url, json=payload, timeout=30)
     response.raise_for_status()
-    payload = response.json()
-    if not payload.get("ok"):
-        raise RuntimeError(f"Telegram API error: {payload}")
-
+    result = response.json()
+    if not result.get("ok"):
+        raise RuntimeError(f"Telegram API error: {result}")
 
 def format_message(job: dict[str, str]) -> str:
     published = job.get("published") or "unknown date"
     location = job.get("location") or "Unknown"
     source = job.get("source") or "unknown"
+    
+    # Formatted with HTML tags for better readability
     return (
-        f"New role: {job['title']} at {job['company']}\n"
-        f"Source: {source}\n"
-        f"Location: {location}\n"
-        f"Posted: {published}\n"
-        f"{job['link']}"
+        f"🚀 <b>New Role:</b> {job['title']}\n"
+        f"🏢 <b>Company:</b> {job['company']}\n"
+        f"📍 <b>Location:</b> {location}\n"
+        f"📡 <b>Source:</b> {source}\n"
+        f"🕒 <b>Posted:</b> {published}\n\n"
+        f"🔗 <a href='{job['link']}'>Apply Here</a>"
     )
 
 
