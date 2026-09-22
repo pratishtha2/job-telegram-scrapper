@@ -28,6 +28,8 @@ DEFAULT_SOURCES = (
     "https://remoteok.com/api",
     "https://jobicy.com/api/v2/remote-jobs?count=50",
     "https://himalayas.app/jobs/api?limit=100",
+    "https://www.arbeitnow.com/api/job-board-api",
+    "https://remotefirstjobs.com/rss/jobs/software-development.rss"
 )
 
 DEFAULT_KEYWORDS = (
