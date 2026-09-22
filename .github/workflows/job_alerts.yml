@@ -1,3 +1,4 @@
+
 name: Job Scraper Bot
 on:
   schedule:
