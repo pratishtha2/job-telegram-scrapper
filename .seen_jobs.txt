@@ -3419,6 +3419,56 @@
 162414
 162415
 162416
+162554
+162555
+162556
+162557
+162558
+162559
+162560
+162561
+162562
+162563
+162564
+162565
+162566
+162567
+162568
+162570
+162571
+162572
+162573
+162574
+162577
+162578
+162580
+162582
+162584
+162586
+162588
+162590
+162592
+162594
+162596
+162597
+162599
+162611
+162612
+162614
+162615
+162616
+162617
+162618
+162619
+162620
+162621
+162622
+162623
+162624
+162625
+162626
+162627
+162628
 1680495
 1749306
 1919265
@@ -3471,6 +3521,7 @@ https://himalayas.app/companies/abbott/jobs/field-service-engineer-ii-colorado-s
 https://himalayas.app/companies/abbott/jobs/territory-manager-cmems-detroit-mi?utm_source=api
 https://himalayas.app/companies/abbvie/jobs/sr-medical-science-liaison?utm_source=api
 https://himalayas.app/companies/abc-legal-services/jobs/senior-java-developer-enterprise-api-integrations
+https://himalayas.app/companies/abi/jobs/midwife-in-ireland-telehealth?utm_source=api
 https://himalayas.app/companies/abnormal/jobs/trust-analyst
 https://himalayas.app/companies/abridge/jobs/it-operations-specialist
 https://himalayas.app/companies/absolute-disclosure/jobs/attorney-work-from-home-remote-document-review-projects
@@ -3561,6 +3612,7 @@ https://himalayas.app/companies/autodesk/jobs/sr-marketing-communications-manage
 https://himalayas.app/companies/autonation/jobs/regional-sales-director
 https://himalayas.app/companies/avaaz/jobs/people-culture-officer-talent-performance-systems
 https://himalayas.app/companies/avalere-health/jobs/art-director?utm_source=api
+https://himalayas.app/companies/aveva/jobs/channel-account-manager-taiwan?utm_source=api
 https://himalayas.app/companies/avomind/jobs/after-sales-support-specialist-latin-america?utm_source=api
 https://himalayas.app/companies/aweber/jobs/engineering-team-lead
 https://himalayas.app/companies/axalta/jobs/account-specialist-5682560825?utm_source=api
@@ -3629,6 +3681,7 @@ https://himalayas.app/companies/blue-origin/jobs/cad-engineer-infrastructure
 https://himalayas.app/companies/bluelight-consulting/jobs/senior-flask-react-fullstack-developer-remote-latin-america-4334423353
 https://himalayas.app/companies/bluelight-consulting/jobs/software-architect-aws-nodejs-latin-america-remote-2029857597
 https://himalayas.app/companies/bluesight/jobs/spend-analyst-costcheck?utm_source=api
+https://himalayas.app/companies/bluzinc/jobs/chief-of-staff-vp-operations-marketing-advertising-ecommerce?utm_source=api
 https://himalayas.app/companies/bmo/jobs/associate-product-owner-ivr
 https://himalayas.app/companies/bonterra/jobs/business-development-representative
 https://himalayas.app/companies/booksy-net/jobs/director-of-engineering?utm_source=api
@@ -3681,6 +3734,7 @@ https://himalayas.app/companies/caci-international-inc/jobs/acquisition-sme-busi
 https://himalayas.app/companies/calabrio/jobs/senior-director-revenue-operations?utm_source=api
 https://himalayas.app/companies/call-management-resources/jobs/sales-executive
 https://himalayas.app/companies/candorelectric/jobs/customer-service-representative?utm_source=api
+https://himalayas.app/companies/capital-one/jobs/director-agency-partnerships-ad-sales-capital-one-ad-solutions?utm_source=api
 https://himalayas.app/companies/capslock/jobs/senior-performance-copywriter-1931759832
 https://himalayas.app/companies/capslock/jobs/senior-performance-copywriter-2790649008
 https://himalayas.app/companies/cardinal-health/jobs/manager-revenue-cycle-management
@@ -3770,6 +3824,7 @@ https://himalayas.app/companies/cornell-university/jobs/salesforce-operations-ma
 https://himalayas.app/companies/coros/jobs/sales-operations-specialist-deat-25hrs-or-more?utm_source=api
 https://himalayas.app/companies/corsearch/jobs/sales-development-representative-6616471117
 https://himalayas.app/companies/cotiviti/jobs/director-product-management
+https://himalayas.app/companies/cotiviti/jobs/senior-support-analyst-dental-prepay?utm_source=api
 https://himalayas.app/companies/cotiviti/jobs/senior-technical-product-owner-ai-native?utm_source=api
 https://himalayas.app/companies/coupa-software-inc/jobs/revenue-strategic-programs-director?utm_source=api
 https://himalayas.app/companies/crb/jobs/senior-process-engineer-small-molecule-oligo-peptide
@@ -3817,6 +3872,7 @@ https://himalayas.app/companies/dexcom/jobs/staff-sales-trainer
 https://himalayas.app/companies/digicert/jobs/senior-devops-engineer?utm_source=api
 https://himalayas.app/companies/digitain/jobs/mathematician
 https://himalayas.app/companies/digital-maelstrom/jobs/junior-security-engineer
+https://himalayas.app/companies/digital-moment/jobs/senior-project-manager-gestionnaire-senior-de-projets?utm_source=api
 https://himalayas.app/companies/dikshatek-co/jobs/ba-da_remote-job
 https://himalayas.app/companies/direct-supply-inc/jobs/senior-software-security-architect?utm_source=api
 https://himalayas.app/companies/directmeds/jobs/performance-creative-strategist-graphic-video-ai-designer
@@ -3862,6 +3918,7 @@ https://himalayas.app/companies/enthuziastic/jobs/generative-ai-automation-engin
 https://himalayas.app/companies/entrepreneur-cooperative/jobs/bdr-sales-operations-specialist
 https://himalayas.app/companies/entrupy/jobs/authentication-specialist-ii-jewelry-and-apparel?utm_source=api
 https://himalayas.app/companies/envato/jobs/senior-product-manager-1355667653
+https://himalayas.app/companies/envita-solutions-llc/jobs/corporate-sales-executive?utm_source=api
 https://himalayas.app/companies/epta-group/jobs/key-account-manager-walmart-9285653771
 https://himalayas.app/companies/eql-tech/jobs/eql-elite-talent-pool
 https://himalayas.app/companies/estante-magica/jobs/estagio-em-pre-vendas-comercial-100-remoto-2561330004
@@ -3875,6 +3932,7 @@ https://himalayas.app/companies/ewor-gmbh/jobs/industrial-tech-co-founder-cmo-10
 https://himalayas.app/companies/ewor-gmbh/jobs/logistics-co-founder-cmo-100-remote-m-f-d-9578876064?utm_source=api
 https://himalayas.app/companies/exl/jobs/collections-analytics-manager-credit-cards
 https://himalayas.app/companies/exl/jobs/irf-quality-analyst-iv-healthcare
+https://himalayas.app/companies/exoticca/jobs/travel-agent-amadeus-2548404827?utm_source=api
 https://himalayas.app/companies/experian/jobs/assistente-de-gestao-do-cliente-pleno-vaga-afirmativa-para-mulheres?utm_source=api
 https://himalayas.app/companies/experian/jobs/insurance-sales-agent-remote-9162564260
 https://himalayas.app/companies/extend-app/jobs/senior-analyst-client-insights-8294319598
@@ -3888,6 +3946,8 @@ https://himalayas.app/companies/fetch-ai-inc/jobs/fetch-ai-ambassador?utm_source
 https://himalayas.app/companies/ffg-finanzcheck-finanzportale-gmbh/jobs/quereinsteiger-im-vertrieb-im-homeoffice-w-m-d
 https://himalayas.app/companies/fico/jobs/domain-pre-sales-sr-consultant?utm_source=api
 https://himalayas.app/companies/fidelity/jobs/client-service-and-support-representative-unilingual-bilingual-contract-100
+https://himalayas.app/companies/fidus-systems/jobs/dsp-designer?utm_source=api
+https://himalayas.app/companies/fidus-systems/jobs/signal-integrity-and-power-integrity-designer-1340009757?utm_source=api
 https://himalayas.app/companies/fieldcore/jobs/field-operations-professional?utm_source=api
 https://himalayas.app/companies/fiesta-health/jobs/client-onboarding-specialist-latam-9790074451
 https://himalayas.app/companies/fig-security/jobs/founding-customer-success-manager?utm_source=api
@@ -3988,6 +4048,7 @@ https://himalayas.app/companies/grupo-bancorbras/jobs/analista-de-seguranca-purp
 https://himalayas.app/companies/grupo-data/jobs/java-developer-kubernetes-docker?utm_source=api
 https://himalayas.app/companies/grupo-sysmap/jobs/desenvolvedor-backend-net-sr-3102437499
 https://himalayas.app/companies/gsd-staffing/jobs/lead-generator-specialist-remote-nearshore-offshore-preferred?utm_source=api
+https://himalayas.app/companies/gtech-information-technology-llc/jobs/seo-team-lead-assistant-manager-seo?utm_source=api
 https://himalayas.app/companies/guidehouse/jobs/public-adolescent-health-managing-consultant?utm_source=api
 https://himalayas.app/companies/guidehouse/jobs/technical-project-manager-child-welfare-3528337759
 https://himalayas.app/companies/guideway-care/jobs/clinical-service-lead
@@ -4537,6 +4598,8 @@ https://himalayas.app/companies/pvcase/jobs/sales-director-north-america-4542257
 https://himalayas.app/companies/q-tech/jobs/sales-manager-uk
 https://himalayas.app/companies/qad-inc/jobs/director-of-revenue-marketing?utm_source=api
 https://himalayas.app/companies/qbrainx/jobs/senior-consultant
+https://himalayas.app/companies/qry/jobs/paid-media-strategist-5273394828?utm_source=api
+https://himalayas.app/companies/qry/jobs/paid-search-strategist?utm_source=api
 https://himalayas.app/companies/qualfon/jobs/corporate-talent-acquisition-business-partner-i?utm_source=api
 https://himalayas.app/companies/quality-digital/jobs/desenvolvedor-senior-back-end-ipaas
 https://himalayas.app/companies/quantum-health/jobs/1099-contractor-pharmacy-strategy-and-market-intelligence-lead?utm_source=api
@@ -4555,6 +4618,7 @@ https://himalayas.app/companies/receptive/jobs/nurse-practitioner-adhd-diagnosis
 https://himalayas.app/companies/receptive/jobs/physician-adhd-diagnosis-and-treatment-indiana?utm_source=api
 https://himalayas.app/companies/reconomy/jobs/account-manager?utm_source=api
 https://himalayas.app/companies/recruitgo/jobs/estate-planning-paralegal-funding-support
+https://himalayas.app/companies/recruitmymom/jobs/fractional-chief-financial-officer?utm_source=api
 https://himalayas.app/companies/recruitmymom/jobs/marketing-administrative-virtual-assistant
 https://himalayas.app/companies/red-carrot/jobs/marketing-manager-485280765
 https://himalayas.app/companies/red-hat/jobs/technical-account-manager?utm_source=api
@@ -4613,6 +4677,7 @@ https://himalayas.app/companies/scalejet/jobs/inventory-manager-7377092186?utm_s
 https://himalayas.app/companies/scalejet/jobs/recruiter-part-time?utm_source=api
 https://himalayas.app/companies/scalian/jobs/project-manager-ecss-standards?utm_source=api
 https://himalayas.app/companies/scharfsinn-recruiting/jobs/facebook-werbeanzeigen-betreuung-m-w-d-100-homeoffice-teilzeit-25-30-h
+https://himalayas.app/companies/schneider-electric-cn/jobs/advanced-cooling-technical-support-specialist-1506902512?utm_source=api
 https://himalayas.app/companies/sciolex/jobs/data-ai-engineer
 https://himalayas.app/companies/sciris/jobs/account-director-us-718029853?utm_source=api
 https://himalayas.app/companies/search-atlas/jobs/product-engineer-pm-5642318840?utm_source=api
@@ -4634,6 +4699,7 @@ https://himalayas.app/companies/shaw-university/jobs/program-director-ed-d-artif
 https://himalayas.app/companies/sheetz/jobs/employee-relations-specialist-ii-cli?utm_source=api
 https://himalayas.app/companies/shi-international-corp/jobs/director-global-sales-strategy
 https://himalayas.app/companies/shi-international-corp/jobs/presales-solutions-architect-enterprise-networking
+https://himalayas.app/companies/shi-international-corp/jobs/sr-solutions-consultant-sddc?utm_source=api
 https://himalayas.app/companies/shiseido/jobs/senior-manager-amazon-remote-ny-us-3029530252?utm_source=api
 https://himalayas.app/companies/shopltk/jobs/sr-manager-engineering-data-science?utm_source=api
 https://himalayas.app/companies/short-elliott-hendrickson-inc/jobs/business-development-leader
@@ -4716,8 +4782,10 @@ https://himalayas.app/companies/sydiera/jobs/independent-healthcare-recruiter?ut
 https://himalayas.app/companies/syllo/jobs/platform-software-engineer?utm_source=api
 https://himalayas.app/companies/symetra/jobs/advanced-markets-consultant-life-insurance-remote?utm_source=api
 https://himalayas.app/companies/symetra/jobs/claims-consultant-remote?utm_source=api
+https://himalayas.app/companies/syneos-health-india-private-limited/jobs/experienced-clinical-research-associate-sponsor-dedicated?utm_source=api
 https://himalayas.app/companies/syneos-health-india-private-limited/jobs/principal-biostatistician
 https://himalayas.app/companies/syneos-health-india-private-limited/jobs/principal-statistician-ophthalmology-fully-remote-in-europe-5553595568
+https://himalayas.app/companies/syneos-health-india-private-limited/jobs/project-data-manager-1852499587?utm_source=api
 https://himalayas.app/companies/syneos-health-india-private-limited/jobs/safety-pv-specialist-i-wuhan
 https://himalayas.app/companies/syneos-health-india-private-limited/jobs/site-contract-specialist-con-experiencia-en-estudios-observacionales-madrid-fs?utm_source=api
 https://himalayas.app/companies/syneos-health-india-private-limited/jobs/sr-country-regulatory-specialist-clinical-research-100-remote-in-mexico-eng
@@ -4733,6 +4801,7 @@ https://himalayas.app/companies/talent-titans-pte-ltd/jobs/sales-manager-offshor
 https://himalayas.app/companies/talent-titans-pte-ltd/jobs/senior-procurement-executive-cruise-ship
 https://himalayas.app/companies/talentport/jobs/social-media-customer-service-specialist-contract?utm_source=api
 https://himalayas.app/companies/tameson/jobs/head-of-technical-content-5338348631?utm_source=api
+https://himalayas.app/companies/tandem-diabetes-care/jobs/sr-marketing-technology-strategist?utm_source=api
 https://himalayas.app/companies/tasq-staffing-solutions/jobs/senior-net-developer-remote-philippines-only
 https://himalayas.app/companies/tasq-staffing-solutions/jobs/technical-writer-wfh-philippines
 https://himalayas.app/companies/taubman-financial-management/jobs/life-and-annuity-insurance-sales-agent?utm_source=api
@@ -4924,6 +4993,7 @@ https://himalayas.app/companies/x-rite/jobs/global-brand-color-program-manager
 https://himalayas.app/companies/xentity/jobs/react-native-mobile-application-developer-5473998270?utm_source=api
 https://himalayas.app/companies/xperteez-technology/jobs/business-operations-expert-remote-contract?utm_source=api
 https://himalayas.app/companies/xperteez-technology/jobs/software-engineer-github-contributor-remote-contract
+https://himalayas.app/companies/yadimen-consulting-limited/jobs/redwood-automation-solution-designer-runmyjobs-sap-bpa-sap-finance-close-i?utm_source=api
 https://himalayas.app/companies/yellowtail-conclusion/jobs/junior-ai-consultant
 https://himalayas.app/companies/yipitdata/jobs/organic-growth-manager-seo-aeo?utm_source=api
 https://himalayas.app/companies/yiyienglish/jobs/teach-english-from-home-with-yiyi-4726184522?utm_source=api
@@ -4941,6 +5011,7 @@ https://himalayas.app/companies/zimperium/jobs/lead-devops-engineer-ai-gpu
 https://himalayas.app/companies/zoftify-travel-software-development/jobs/full-stack-developer-react-node-js?utm_source=api
 https://himalayas.app/companies/zscaler/jobs/principal-product-manager-4146946268?utm_source=api
 https://himalayas.app/companies/zscaler/jobs/sr-partner-business-manager-sled
+https://remotefirstjobs.com/companies/0x/jobs/senior-software-engineer-api-products-883201
 https://remotefirstjobs.com/companies/1-800-contacts/jobs/ai-design-engineer-866769
 https://remotefirstjobs.com/companies/1-800-contacts/jobs/frontend-engineer-ai-prototyping-866770
 https://remotefirstjobs.com/companies/1-800-contacts/jobs/full-stack-engineer-python-872858
@@ -5034,6 +5105,7 @@ https://remotefirstjobs.com/companies/8th-light/jobs/principal-software-engineer
 https://remotefirstjobs.com/companies/8th-light/jobs/principal-software-engineer-remote-868153
 https://remotefirstjobs.com/companies/8th-light/jobs/principal-software-engineer-remote-875813
 https://remotefirstjobs.com/companies/8th-light/jobs/principal-software-engineer-remote-880925
+https://remotefirstjobs.com/companies/8th-light/jobs/technical-engagement-manager-remote-883212
 https://remotefirstjobs.com/companies/ab-inbev/jobs/ai-engineer-868738
 https://remotefirstjobs.com/companies/ab-inbev/jobs/data-product-manager-873811
 https://remotefirstjobs.com/companies/ab-inbev/jobs/intermediate-java-developer-869257
@@ -5377,6 +5449,7 @@ https://remotefirstjobs.com/companies/angkas/jobs/junior-qa-engineer-864130
 https://remotefirstjobs.com/companies/angkas/jobs/learning-development-specialist-864135
 https://remotefirstjobs.com/companies/angkas/jobs/procurement-associate-875035
 https://remotefirstjobs.com/companies/anika-systems/jobs/sr-api-engineer-880793
+https://remotefirstjobs.com/companies/anima/jobs/product-designer-883217
 https://remotefirstjobs.com/companies/anrok/jobs/product-manager-file-and-remit-868527
 https://remotefirstjobs.com/companies/anteriad/jobs/senior-marketing-automation-specialist-862959
 https://remotefirstjobs.com/companies/anvilogic/jobs/regional-sales-manager-rsm-pnw-remote-877372
@@ -5677,6 +5750,7 @@ https://remotefirstjobs.com/companies/box-inc-deutschland/jobs/senior-ai-automat
 https://remotefirstjobs.com/companies/braeburn/jobs/manager-sales-operations-871632
 https://remotefirstjobs.com/companies/braeburn/jobs/regional-business-specialist-new-england-876427
 https://remotefirstjobs.com/companies/braeburn/jobs/regional-director-southwest-867507
+https://remotefirstjobs.com/companies/brain-corp/jobs/technical-support-engineer-spanish-bilingual-6-month-contract-remote-883228
 https://remotefirstjobs.com/companies/branch-international/jobs/data-platform-engineer-874726
 https://remotefirstjobs.com/companies/branch-international/jobs/platform-security-engineer-881014
 https://remotefirstjobs.com/companies/brevo/jobs/senior-software-engineer-golang-fullstack-self-serve-882043
@@ -5738,6 +5812,7 @@ https://remotefirstjobs.com/companies/capio-group/jobs/project-manager-865302
 https://remotefirstjobs.com/companies/capio-group/jobs/project-manager-872371
 https://remotefirstjobs.com/companies/capio-group/jobs/salesforce-developer-865304
 https://remotefirstjobs.com/companies/capio-group/jobs/senior-enterprise-architect-868054
+https://remotefirstjobs.com/companies/capio-group/jobs/senior-enterprise-architect-883226
 https://remotefirstjobs.com/companies/capio-group/jobs/senior-enterprise-architect-senior-technical-lead-865306
 https://remotefirstjobs.com/companies/capio-group/jobs/solution-architect-872379
 https://remotefirstjobs.com/companies/capstone-integrated-solutions/jobs/blue-yonder-jda-rpg-consultant-872926
@@ -6229,6 +6304,7 @@ https://remotefirstjobs.com/companies/covergo/jobs/lead-full-stack-engineer-net-
 https://remotefirstjobs.com/companies/covergo/jobs/senior-full-stack-engineer-net-vuereact-fully-remote-canada-time-868325
 https://remotefirstjobs.com/companies/covergo/jobs/solutions-architect-insurance-fully-remote-865570
 https://remotefirstjobs.com/companies/covergo/jobs/solutions-architect-insurance-fully-remote-871643
+https://remotefirstjobs.com/companies/covr-financial-technologies/jobs/software-engineer-ii-full-stack-883223
 https://remotefirstjobs.com/companies/crazygames/jobs/remote-senior-liveops-developer-mobile-games-870795
 https://remotefirstjobs.com/companies/crb/jobs/architect-iv-882986
 https://remotefirstjobs.com/companies/creative-fabrica/jobs/ideaai-market-launcher-usbased-872859
@@ -6423,6 +6499,7 @@ https://remotefirstjobs.com/companies/doppler/jobs/technical-customer-success-ma
 https://remotefirstjobs.com/companies/doxel/jobs/senior-director-people-866631
 https://remotefirstjobs.com/companies/dozuki/jobs/enterprise-inside-sales-account-executive-880951
 https://remotefirstjobs.com/companies/drawbridge/jobs/senior-platform-engineer-865151
+https://remotefirstjobs.com/companies/drawbridge/jobs/vp-sales-883197
 https://remotefirstjobs.com/companies/dreamhost/jobs/delivery-systems-administrator-arkansas-us-remote-project-management-864254
 https://remotefirstjobs.com/companies/dreamhost/jobs/delivery-systems-administrator-remote-us-project-management-875906
 https://remotefirstjobs.com/companies/dreamhost/jobs/delivery-systems-administrator-remote-us-project-management-876435
@@ -6522,6 +6599,7 @@ https://remotefirstjobs.com/companies/ellipsis-marketing-ltd/jobs/senior-organic
 https://remotefirstjobs.com/companies/emburse/jobs/account-executive-midmarket-remote-us-876101
 https://remotefirstjobs.com/companies/emergent-software/jobs/account-executive-868690
 https://remotefirstjobs.com/companies/emergent-software/jobs/ai-architect-872786
+https://remotefirstjobs.com/companies/emergent-software/jobs/controller-883240
 https://remotefirstjobs.com/companies/emergent-software/jobs/it-support-specialist-878931
 https://remotefirstjobs.com/companies/emergent-software/jobs/lead-software-engineer-872785
 https://remotefirstjobs.com/companies/emergent-software/jobs/senior-software-engineer-878933
@@ -6891,6 +6969,7 @@ https://remotefirstjobs.com/companies/gofasti/jobs/1178-sr-data-architect-874382
 https://remotefirstjobs.com/companies/gofasti/jobs/1182-junior-frontend-developer-parttime-875475
 https://remotefirstjobs.com/companies/gofasti/jobs/1183-virtual-assistant-876894
 https://remotefirstjobs.com/companies/gofasti/jobs/1190-hvac-inside-sales-estimator-881534
+https://remotefirstjobs.com/companies/going/jobs/vp-of-engineering-883207
 https://remotefirstjobs.com/companies/goldstone-partners-inc/jobs/ai-architect-us-remote-867962
 https://remotefirstjobs.com/companies/goldstone-partners-inc/jobs/ai-architect-us-remote-875771
 https://remotefirstjobs.com/companies/good-inside/jobs/associate-video-editor-875721
@@ -7527,6 +7606,7 @@ https://remotefirstjobs.com/companies/lawpay/jobs/senior-product-manager-identit
 https://remotefirstjobs.com/companies/lawpay/jobs/senior-software-engineer-ai-search-874452
 https://remotefirstjobs.com/companies/lawpay/jobs/staff-software-engineer-ai-875554
 https://remotefirstjobs.com/companies/leantaas/jobs/associate-gtm-engineer-865551
+https://remotefirstjobs.com/companies/leantaas/jobs/senior-clinical-customer-success-manager-iqueue-for-care-transitions-883230
 https://remotefirstjobs.com/companies/leantaas/jobs/senior-program-manager-iqueue-for-inpatient-flow-869737
 https://remotefirstjobs.com/companies/leap-wealth/jobs/business-development-manager-account-executive-871817
 https://remotefirstjobs.com/companies/leap-wealth/jobs/marketing-manager-871825
@@ -7564,6 +7644,7 @@ https://remotefirstjobs.com/companies/life360/jobs/senior-software-engineer-ii-m
 https://remotefirstjobs.com/companies/life360/jobs/senior-software-engineer-ii-mobile-revenue-experiences-ai-native-872245
 https://remotefirstjobs.com/companies/life360/jobs/senior-software-engineer-ii-mobile-revenue-experimentation-ai-native-866688
 https://remotefirstjobs.com/companies/life360/jobs/senior-software-engineer-ii-mobile-revenue-experimentation-ai-native-871686
+https://remotefirstjobs.com/companies/life360/jobs/senior-software-engineer-verticals-ai-native-883208
 https://remotefirstjobs.com/companies/life360/jobs/staff-ai-platform-engineer-881467
 https://remotefirstjobs.com/companies/liftoff-mobile/jobs/manager-technical-accounting-872111
 https://remotefirstjobs.com/companies/lightforce/jobs/director-product-marketing-878882
@@ -7941,6 +8022,7 @@ https://remotefirstjobs.com/companies/movable-ink/jobs/senior-backend-developer-
 https://remotefirstjobs.com/companies/movella/jobs/computer-vision-engineer-automation-mobility-872222
 https://remotefirstjobs.com/companies/movella/jobs/computer-vision-engineer-body-sensor-networks-872220
 https://remotefirstjobs.com/companies/movella/jobs/product-manager-humanoid-robotics-data-866159
+https://remotefirstjobs.com/companies/movement-labs/jobs/senior-data-engineers-883227
 https://remotefirstjobs.com/companies/moxie/jobs/director-of-engineering-873024
 https://remotefirstjobs.com/companies/moxie/jobs/staff-ai-engineer-878884
 https://remotefirstjobs.com/companies/moxie/jobs/staff-platform-engineer-878883
@@ -8156,6 +8238,7 @@ https://remotefirstjobs.com/companies/nagarro/jobs/senior-staff-engineer-salesfo
 https://remotefirstjobs.com/companies/nagarro/jobs/senior-staff-engineer-universe-pick-developer-879841
 https://remotefirstjobs.com/companies/nagarro/jobs/senior-systems-engineer-medical-industry-874732
 https://remotefirstjobs.com/companies/nagarro/jobs/solution-architect-healthcare-life-sciences-safe-864673
+https://remotefirstjobs.com/companies/nagarro/jobs/solution-architect-sap-s4hana-utilities-isu-mfd-883232
 https://remotefirstjobs.com/companies/nagarro/jobs/staff-consultant-sap-basis-874700
 https://remotefirstjobs.com/companies/nagarro/jobs/staff-consultant-sap-materials-873039
 https://remotefirstjobs.com/companies/nagarro/jobs/staff-engineer-866236
@@ -8170,6 +8253,8 @@ https://remotefirstjobs.com/companies/nagarro/jobs/staff-engineer-php-863152
 https://remotefirstjobs.com/companies/nagarro/jobs/staff-engineer-qa-automation-870743
 https://remotefirstjobs.com/companies/nagarro/jobs/staff-engineer-salesforce-health-cloud-864163
 https://remotefirstjobs.com/companies/nagarro/jobs/staff-engineer-salesforce-health-cloud-864165
+https://remotefirstjobs.com/companies/nagarro/jobs/staff-engineer-sap-espp-support-consultant-l2l3-883231
+https://remotefirstjobs.com/companies/nagarro/jobs/staff-engineer-sap-warranty-management-883233
 https://remotefirstjobs.com/companies/nagarro/jobs/staff-engineer-servicenow-atf-864162
 https://remotefirstjobs.com/companies/nagarro/jobs/staff-engineer-sharepoint-872594
 https://remotefirstjobs.com/companies/nagarro/jobs/technical-lead-agentic-ai-863561
@@ -8888,6 +8973,8 @@ https://remotefirstjobs.com/companies/rackner/jobs/service-integration-lead-siam
 https://remotefirstjobs.com/companies/rackner/jobs/software-automation-platform-engineer-federal-health-it-880916
 https://remotefirstjobs.com/companies/rackner/jobs/telemetry-performance-data-analyst-federal-health-it-881449
 https://remotefirstjobs.com/companies/rackner/jobs/theater-account-provisioning-specialist-federal-health-it-881450
+https://remotefirstjobs.com/companies/rad-ai/jobs/senior-implementation-engineer-883241
+https://remotefirstjobs.com/companies/rad-ai/jobs/senior-implementation-project-manager-883187
 https://remotefirstjobs.com/companies/rad-ai/jobs/senior-implementations-product-specialist-877909
 https://remotefirstjobs.com/companies/rad-ai/jobs/staff-software-engineer-speech-873120
 https://remotefirstjobs.com/companies/radformation/jobs/senior-software-engineer-chartcheck-863064
@@ -9279,6 +9366,7 @@ https://remotefirstjobs.com/companies/silverdev/jobs/wonderful-deployment-strate
 https://remotefirstjobs.com/companies/silverdev/jobs/wonderful-forward-deployed-engineer-monterrey-877053
 https://remotefirstjobs.com/companies/silverfin/jobs/associate-legal-counsel-882654
 https://remotefirstjobs.com/companies/silverfin/jobs/data-analytics-engineer-882655
+https://remotefirstjobs.com/companies/silverrail/jobs/agile-delivery-specialist-883224
 https://remotefirstjobs.com/companies/simeio/jobs/forgerock-engineer-875261
 https://remotefirstjobs.com/companies/simeio/jobs/java-developer-spring-bootapigit-875263
 https://remotefirstjobs.com/companies/simeio/jobs/sr-iam-engineer-ping-872676
@@ -9620,11 +9708,15 @@ https://remotefirstjobs.com/companies/syms-strategic-group-llc-ssg/jobs/software
 https://remotefirstjobs.com/companies/syms-strategic-group-llc-ssg/jobs/solutions-architect-880869
 https://remotefirstjobs.com/companies/syms-strategic-group-llc-ssg/jobs/solutions-architect-880870
 https://remotefirstjobs.com/companies/syms-strategic-group-llc-ssg/jobs/solutions-architect-880871
+https://remotefirstjobs.com/companies/syms-strategic-group-llc-ssg/jobs/solutions-architect-883191
+https://remotefirstjobs.com/companies/syms-strategic-group-llc-ssg/jobs/solutions-architect-883192
+https://remotefirstjobs.com/companies/syms-strategic-group-llc-ssg/jobs/solutions-architect-883195
 https://remotefirstjobs.com/companies/syndigo/jobs/account-executive-expansion-873404
 https://remotefirstjobs.com/companies/syndigo/jobs/image-editor-882226
 https://remotefirstjobs.com/companies/syndigo/jobs/senior-total-rewards-partner-872647
 https://remotefirstjobs.com/companies/syndigo/jobs/strategic-customer-success-manager-healthcare-medical-devices-868536
 https://remotefirstjobs.com/companies/syndio/jobs/gtm-ai-builder-879409
+https://remotefirstjobs.com/companies/syndio/jobs/senior-manager-global-account-partners-883225
 https://remotefirstjobs.com/companies/syndio/jobs/software-engineer-integrations-us-calgary-875705
 https://remotefirstjobs.com/companies/syndio/jobs/staff-software-engineer-ai-platform-us-remote-or-calgary-877851
 https://remotefirstjobs.com/companies/sysco/jobs/fleet-engineering-graduate-868773
@@ -9754,8 +9846,10 @@ https://remotefirstjobs.com/companies/telxius/jobs/senior-manager-regulatory-aff
 https://remotefirstjobs.com/companies/ten-mile-square-technologies-llc/jobs/engineering-team-lead-sdet-875792
 https://remotefirstjobs.com/companies/ten-mile-square-technologies-llc/jobs/senior-full-stack-typescript-developer-with-devops-875793
 https://remotefirstjobs.com/companies/tendo/jobs/marketing-specialist-878331
+https://remotefirstjobs.com/companies/terawatt-infrastructure/jobs/office-administrative-assistant-883214
 https://remotefirstjobs.com/companies/terawatt-infrastructure/jobs/senior-quality-assurance-qa-automation-engineer-863662
 https://remotefirstjobs.com/companies/terawatt-infrastructure/jobs/staff-devops-engineer-875316
+https://remotefirstjobs.com/companies/terawatt-infrastructure/jobs/utility-coordinator-883215
 https://remotefirstjobs.com/companies/terrascend/jobs/manager-accounts-receivable-880475
 https://remotefirstjobs.com/companies/test-yantra/jobs/automation-tester-pega-test-automation-871206
 https://remotefirstjobs.com/companies/testlio/jobs/payments-solutions-architect-us-or-emea-867245
@@ -10178,6 +10272,7 @@ https://remotefirstjobs.com/companies/vetsez/jobs/sql-developer-analyst-team-lea
 https://remotefirstjobs.com/companies/vetsez/jobs/technical-writer-remote-opportunity-871566
 https://remotefirstjobs.com/companies/vetsez/jobs/windows-system-administrator-remote-opportunity-877960
 https://remotefirstjobs.com/companies/vibes/jobs/security-engineer-880469
+https://remotefirstjobs.com/companies/vicai/jobs/technical-customer-success-representative-883216
 https://remotefirstjobs.com/companies/virta-health/jobs/senior-analytics-engineer-878149
 https://remotefirstjobs.com/companies/virta-health/jobs/senior-software-engineer-client-lifecycle-866816
 https://remotefirstjobs.com/companies/virta-health/jobs/software-engineer-871061
@@ -10363,6 +10458,7 @@ https://remotefirstjobs.com/companies/zoi/jobs/it-workplace-operations-engineer-
 https://remotefirstjobs.com/companies/zoic-studios/jobs/us-director-business-development-program-management-zoic-labs-864218
 https://remotefirstjobs.com/companies/zoic-studios/jobs/us-product-manager-zoic-labs-863627
 https://remotefirstjobs.com/companies/zoomo/jobs/global-digital-marketing-intern-868545
+https://remotefirstjobs.com/companies/zuora/jobs/customer-solution-engineer-zuora-workday-financial-management-fins-883189
 https://remotefirstjobs.com/companies/zwift/jobs/training-specialist-874806
 https://remotefirstjobs.com/companies/zyte/jobs/ai-tooling-engineer-remote-873669
 https://remotefirstjobs.com/companies/zyte/jobs/data-qa-engineer-remote-873266
@@ -10433,10 +10529,13 @@ https://weworkremotely.com/remote-jobs/lithic-senior-software-engineer-processin
 https://weworkremotely.com/remote-jobs/lithic-senior-software-engineer-product-platform
 https://weworkremotely.com/remote-jobs/maven-clinic-client-success-manager
 https://weworkremotely.com/remote-jobs/maven-clinic-director-marketing-operations
+https://weworkremotely.com/remote-jobs/maven-clinic-head-of-member-growth-b2b2c
 https://weworkremotely.com/remote-jobs/medify-engineering-manager
+https://weworkremotely.com/remote-jobs/mercury-business-continuity-management-lead
 https://weworkremotely.com/remote-jobs/mixpanel-customer-value-architect-iii
 https://weworkremotely.com/remote-jobs/mixpanel-customer-value-architect-iii-1
 https://weworkremotely.com/remote-jobs/offerup-software-development-engineer-ii-full-stack-business-remote-colombia
+https://weworkremotely.com/remote-jobs/offerup-software-development-engineer-ii-remote-colombia
 https://weworkremotely.com/remote-jobs/oportun-senior-data-engineer-capital-markets-r13923
 https://weworkremotely.com/remote-jobs/pagerduty-senior-director-field-enablement
 https://weworkremotely.com/remote-jobs/pinterest-data-scientist-ii-infrastructure
